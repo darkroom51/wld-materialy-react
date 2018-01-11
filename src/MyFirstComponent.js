@@ -1,8 +1,10 @@
 import React from 'react'
 
-const MyFirstComponent = () => (
+// components are called with props objects that contain props
+// we can put JS in JSX in {}
+const MyFirstComponent = (props) => (
     <div>
-        Hello World!
+        Hello World {props.name}!
     </div>
 )
 

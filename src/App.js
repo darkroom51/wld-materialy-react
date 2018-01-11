@@ -5,9 +5,9 @@ class App extends Component {
     render() {
         return (
             <div>
-                <MyFirstComponent/>
-                <MyFirstComponent/>
-                <MyFirstComponent/>
+                <MyFirstComponent name="Mateusz"/> {/*// component call*/}
+                <MyFirstComponent name="Wojtek"/>
+                <MyFirstComponent name="Natalia"/>
             </div>
         );
     }
