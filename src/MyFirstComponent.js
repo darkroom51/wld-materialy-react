@@ -4,7 +4,7 @@ import React from 'react'
 // we can put JS in JSX in {}
 const MyFirstComponent = ({name, showName}) => (
     <div>
-        Hello World { showName ? name : null }
+        <h2>Hello World { showName ? name : null }</h2>
     </div>
 )
 
