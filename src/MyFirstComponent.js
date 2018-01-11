@@ -2,9 +2,9 @@ import React from 'react'
 
 // components are called with props objects that contain props
 // we can put JS in JSX in {}
-const MyFirstComponent = (props) => (
+const MyFirstComponent = ({name, showName}) => (
     <div>
-        Hello World {props.name}!
+        Hello World { showName ? name : null }
     </div>
 )
 
