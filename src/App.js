@@ -6,10 +6,22 @@ class App extends Component {
         counter: 1
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.setState({
             counter: this.state.counter + 1
         }, () => console.log('Stan się zupdatował!'))
+    }
+
+    onMinusClickHandler = () => {
+        this.setState({
+            counter: this.state.counter - 1
+        })
+    }
+
+    onPlusClickHandler = () => {
+        this.setState({
+            counter: this.state.counter + 1
+        })
     }
 
     render() {
@@ -17,6 +29,12 @@ class App extends Component {
         return (
             <div>
                 <h1>{this.state.counter}</h1>
+                <button onClick={this.onMinusClickHandler}>
+                    -
+                </button>
+                <button onClick={this.onPlusClickHandler}>
+                    +
+                </button>
             </div>
         )
     }
