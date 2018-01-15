@@ -24,11 +24,11 @@ const SideBar = (props) => (
         onRequestChange={props.drawerToggle}
     >
         {
-            routes.map(route => (
+            routes.map((route, index) => (
                 <SideBarItem
                     key={route.path}
                     to={route.path}
-                    text={route.text}
+                    text={`${index + 1}. ${route.text}`}
                     drawerToggle={props.drawerToggle}
                 />
             ))

@@ -1,5 +1,6 @@
 import Counter from './Counter'
 import DefaultPropsComponent from './DefaultPropsComponent'
+import FetchingJSONFromPublic from './FetchingJSONFromPublic'
 
 const routes = [
     {
@@ -11,6 +12,11 @@ const routes = [
         path: '/component/default-props',
         text: 'defaultProps example',
         component: DefaultPropsComponent
+    },
+    {
+        path: '/component/fetch-public',
+        text: 'Fetching JSON from public folder',
+        component: FetchingJSONFromPublic
     }
 ]
 
