@@ -5,6 +5,7 @@ import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
 
 import Counter from './Counter'
+import DefaultPropsComponent from './DefaultPropsComponent'
 
 class App extends Component {
     state = {
@@ -45,6 +46,12 @@ class App extends Component {
                     </Drawer>
 
                     <Counter />
+
+                    <DefaultPropsComponent/>
+                    <DefaultPropsComponent name="Mateusz"/>
+                    <DefaultPropsComponent name="Ola"/>
+                    <DefaultPropsComponent name="Ala"/>
+                    <DefaultPropsComponent/>
                 </div>
             </MuiThemeProvider>
         )
