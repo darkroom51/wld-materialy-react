@@ -27,7 +27,7 @@ const SideBar = (props) => (
             routes.map((route, index) => (
                 <SideBarItem
                     key={route.path}
-                    to={route.path}
+                    to={route.to || route.path}
                     text={`${index + 1}. ${route.text}`}
                     drawerToggle={props.drawerToggle}
                 />
