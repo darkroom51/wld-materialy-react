@@ -2,6 +2,7 @@ import Counter from './Counter'
 import DefaultPropsComponent from './DefaultPropsComponent'
 import FetchingJSONFromPublic from './FetchingJSONFromPublic'
 import PassingParamFromURL from './PassingParamFromURL'
+import REST from './REST'
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         to: '/component/passing-params/12345/someRandomString',
         text: 'Passing params from URL',
         component: PassingParamFromURL
+    },
+    {
+        path: '/component/rest',
+        text: 'Simple REST GET data',
+        component: REST
     }
 ]
 
