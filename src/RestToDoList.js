@@ -6,14 +6,15 @@ class RestToDoList extends React.Component {
     state = {
         list: null,
         newTaskName: '',
-        currentlyEditedTaskId: null
+        currentlyEditedTaskId: null,
+        currentlyEditedTaskName: ''
     }
 
     componentWillMount() {
         this.getData()
     }
 
-    getData (){
+    getData() {
         fetch(databaseUrl + 'list/.json')
             .then(response => response.json())
             .then(dataFromDb => this.setState({list: dataFromDb})) //nowy obiekt state ktory zostanie polaczony ze starym state
@@ -22,24 +23,45 @@ class RestToDoList extends React.Component {
 
     deleteTask = (taskId) => {
         fetch(
-            databaseUrl + 'list/'+ taskId +'/.json',
+            databaseUrl + 'list/' + taskId + '/.json',
             {method: 'DELETE'}
         )
-            .then(()=>this.getData())
-}
+            .then(() => this.getData())
+    }
 
-    handleTaskNameClick(taskId){
-        this.setState({currentlyEditedTaskId : taskId})
+    handleTaskNameClick(taskId, taskName) {
+        this.setState({
+            currentlyEditedTaskId: taskId,
+            currentlyEditedTaskName: taskName
+        })
+
     }
 
     handlerInputChange = (e) => this.setState({newTaskName: e.target.value})
+
+    handleEditInputChange = (e) => this.setState({currentlyEditedTaskName: e.target.value})
 
     handlerButtonClick = () => {
         const newTaskObj = {name: this.state.newTaskName}
 
         fetch(databaseUrl + 'list/.json', {method: 'POST', body: JSON.stringify(newTaskObj)}) //headers:{} w FIREBASE nie musza byc
-            .then(()=> {console.log('POST OK'); this.getData(); this.setState({newTaskName : ''}); }) // pobieramy dane ale w .then, bo musimy miec pewnosc, ze POST juz zakonczyl sie wykonywac; odswierza sie dlatego, ze zmieniamy state
-            .catch((err)=> console.log('POST ERR'))
+            .then(() => {
+                console.log('POST OK');
+                this.getData();
+                this.setState({newTaskName: ''});
+            }) // pobieramy dane ale w .then, bo musimy miec pewnosc, ze POST juz zakonczyl sie wykonywac; odswierza sie dlatego, ze zmieniamy state
+            .catch((err) => console.log('POST ERR'))
+    }
+
+    handleSaveButtonClick = () => {
+        const newTaskObj = {name: this.state.currentlyEditedTaskName}
+
+        fetch(
+            databaseUrl + 'list/'+ this.state.currentlyEditedTaskId +'/.json',
+            {method: 'PATCH', body: JSON.stringify(newTaskObj)}
+            )
+            .then(() => this.getData())
+            .catch((err) => console.log('PATCH ERR'))
     }
 
 
@@ -62,14 +84,25 @@ class RestToDoList extends React.Component {
                     Object.entries(this.state.list || {})
                         .map(([key, val]) => (    // key jest lepszy jako uid, niz index tablicy, index lepszy niz nic
                             <div key={key}>
-                                <span onClick={() => this.handleTaskNameClick(key)}>
-                                    {this.state.currentlyEditedTaskId === key ? '*' : ''}
-                                    {val.name}
+                                <span onClick={() => this.handleTaskNameClick(key, val.name)}>
+                                    {this.state.currentlyEditedTaskId === key ?
+                                        <span>
+                                        <input
+                                            onChange={this.handleEditInputChange}
+                                            value={this.state.currentlyEditedTaskName}
+                                        />
+                                            <button onClick={this.handleSaveButtonClick}>
+                                                Save
+                                            </button>
+                                        </span>
+                                        :
+                                        val.name
+                                    }
                                     </span>
                                 <button
-                                onClick={() => this.deleteTask(key)} // funkcja wewnetrzna w anonimorej funkcji strzalkowej, zeby funckja wewnetrza wywolywala sie tylko na klikniecie
+                                    onClick={() => this.deleteTask(key)} // funkcja wewnetrzna w anonimorej funkcji strzalkowej, zeby funckja wewnetrza wywolywala sie tylko na klikniecie
                                 >
-                                    X
+                                    Del
                                 </button>
                             </div>
                         ))
