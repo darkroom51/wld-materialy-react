@@ -3,6 +3,7 @@ import DefaultPropsComponent from './DefaultPropsComponent'
 import FetchingJSONFromPublic from './FetchingJSONFromPublic'
 import PassingParamFromURL from './PassingParamFromURL'
 import REST from './REST'
+import RestToDoList from './RestToDoList'
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path: '/component/rest',
         text: 'Simple REST GET data',
         component: REST
+    },
+    {
+        path: '/component/rest-to-do',
+        text: 'REST Todo list',
+        component: RestToDoList
     }
 ]
 
