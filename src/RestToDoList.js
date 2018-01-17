@@ -17,7 +17,7 @@ class RestToDoList extends React.Component {
     getData() {
         fetch(databaseUrl + 'list/.json')
             .then(response => response.json())
-            .then(dataFromDb => this.setState({list: dataFromDb})) //nowy obiekt state ktory zostanie polaczony ze starym state
+            .then(dataFromDb => this.setState({list: dataFromDb, /* newTaskName : '', */ currentlyEditedTaskName:'', currentlyEditedTaskId:null})) //nowy obiekt state ktory zostanie polaczony ze starym state
 
     }
 
