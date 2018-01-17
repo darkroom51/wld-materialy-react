@@ -8,10 +8,15 @@ class RestToDoList extends React.Component {
         newTaskName: ''
     }
 
-    componentWillMount() {
+    getData (){
         fetch(databaseUrl + 'list/.json')
             .then(response => response.json())
             .then(dataFromDb => this.setState({list: dataFromDb})) //nowy obiekt state ktory zostanie polaczony ze starym state
+
+    }
+
+    componentWillMount() {
+        this.getData()
     }
 
     handlerInputChange = (e) => this.setState({newTaskName: e.target.value})
@@ -27,8 +32,9 @@ class RestToDoList extends React.Component {
                 //headers:{} w FIREBASE nie musza byc
             }
         )
-            .then(()=> alert('Dodano task'))
-            .catch((err)=> alert(err))
+            .then(()=> {console.log('POST OK'); this.getData()}) // pobieramy dane ale w .then, bo musimy miec pewnosc, ze POST juz zakonczyl sie wykonywac
+            .catch((err)=> console.log('POST ERR'))
+
     }
 
 
