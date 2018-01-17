@@ -5,7 +5,8 @@ const databaseUrl = 'https://ad-snadbox.firebaseio.com/JFDDL3/restToDo/waldek/'
 class RestToDoList extends React.Component {
     state = {
         list: null,
-        newTaskName: ''
+        newTaskName: '',
+        currentlyEditedTaskId: null
     }
 
     componentWillMount() {
@@ -26,6 +27,10 @@ class RestToDoList extends React.Component {
         )
             .then(()=>this.getData())
 }
+
+    handleTaskNameClick(taskId){
+        this.setState({currentlyEditedTaskId : taskId})
+    }
 
     handlerInputChange = (e) => this.setState({newTaskName: e.target.value})
 
@@ -57,7 +62,10 @@ class RestToDoList extends React.Component {
                     Object.entries(this.state.list || {})
                         .map(([key, val]) => (    // key jest lepszy jako uid, niz index tablicy, index lepszy niz nic
                             <div key={key}>
-                                {val.name}
+                                <span onClick={() => this.handleTaskNameClick(key)}>
+                                    {this.state.currentlyEditedTaskId === key ? '*' : ''}
+                                    {val.name}
+                                    </span>
                                 <button
                                 onClick={() => this.deleteTask(key)} // funkcja wewnetrzna w anonimorej funkcji strzalkowej, zeby funckja wewnetrza wywolywala sie tylko na klikniecie
                                 >
