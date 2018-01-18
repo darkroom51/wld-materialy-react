@@ -4,6 +4,7 @@ import FetchingJSONFromPublic from './FetchingJSONFromPublic'
 import PassingParamFromURL from './PassingParamFromURL'
 import REST from './REST'
 import RestToDoList from './RestToDoList'
+import FirebaseComponent from './FirebaseComponent'
 
 const routes = [
     {
@@ -36,6 +37,11 @@ const routes = [
         path: '/component/rest-to-do',
         text: 'REST Todo list',
         component: RestToDoList
+    },
+    {
+        path: '/component/firebase',
+        text: 'Firebase Basics',
+        component: FirebaseComponent
     }
 ]
 
