@@ -5,6 +5,7 @@ import PassingParamFromURL from './PassingParamFromURL'
 import REST from './REST'
 import RestToDoList from './RestToDoList'
 import FirebaseComponent from './FirebaseComponent'
+import FirebaseCounter from './FirebaseCounter'
 
 const routes = [
     {
@@ -42,6 +43,11 @@ const routes = [
         path: '/component/firebase',
         text: 'Firebase Basics',
         component: FirebaseComponent
+    },
+    {
+        path: '/component/firebase-counter',
+        text: 'Firebase Counter',
+        component: FirebaseCounter
     }
 ]
 
