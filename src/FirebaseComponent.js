@@ -29,7 +29,16 @@ class FirebaseComponent extends React.Component {
     }
 
     setButtonHandler = () => {
-        database.ref('/testTextField').set(JSON.parse(this.state.textFromField))
+        let parsedData = null;
+
+        try {
+             parsedData = JSON.parse(this.state.textFromField);
+        }catch(err){
+            alert('Wrong JSON format'); //jesli JSON nie poprawny wyjdz z funkcji
+            return
+        }
+
+        database.ref('/testTextField').set(parsedData)
              .then(()=> {
             this.setState({controlMessage: `Set to DB OK, you sent:  ${this.state.textFromField}`});
             setTimeout(()=> {this.setState({textFromField:''}); this.setState({controlMessage: ''})}, 1000)
