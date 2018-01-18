@@ -20,8 +20,8 @@ class FirebaseComponent extends React.Component {
     // }
 
     state = {
-        textFromField: null,
-        controlMessage: null
+        textFromField: '',
+        controlMessage: ''
     }
 
     handleTextField = (e) => {
@@ -30,7 +30,10 @@ class FirebaseComponent extends React.Component {
 
     setButtonHandler = () => {
         database.ref('/testTextField').set(this.state.textFromField)
-             .then(()=> this.setState({controlMessage: `Set to DB OK, you sent:  ${this.state.textFromField}`}))
+             .then(()=> {
+            this.setState({controlMessage: `Set to DB OK, you sent:  ${this.state.textFromField}`});
+            this.setState({textFromField:''});
+        })
     }
 
     render() {
@@ -47,7 +50,7 @@ class FirebaseComponent extends React.Component {
                         multiLine={true}
                         rows={2}
                         fullWidth={true}
-                        //value={this.state.textFromField}
+                        value={this.state.textFromField}
                         onChange={this.handleTextField}
                     />
                 </div>
