@@ -32,7 +32,8 @@ class FirebaseComponent extends React.Component {
         database.ref('/testTextField').set(this.state.textFromField)
              .then(()=> {
             this.setState({controlMessage: `Set to DB OK, you sent:  ${this.state.textFromField}`});
-            this.setState({textFromField:''});
+
+            setTimeout(()=> {this.setState({textFromField:''}); this.setState({controlMessage: ''})}, 1000)
         })
     }
 
