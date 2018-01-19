@@ -49,7 +49,12 @@ class FirebaseLogIn extends React.Component {
     render() {
         return (
             this.state.isLoggedIn ?
-                <div>Cześć zalogowany userze!</div>
+                <div>
+                    Cześć zalogowany userze!
+                <button onClick={() => auth.signOut()}>
+                    Wyloguj
+                </button>
+                </div>
                 :
                 <LogIn
                     onEmailChange={this.onEmailChange}
