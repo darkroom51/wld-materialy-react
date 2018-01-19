@@ -24,37 +24,35 @@ const styles = {
 const LogIn = (props) => (
     <div style={styles.container}>
         <Paper style={styles.item}>
-            <h1 type="headline">
+            <h1>
                 Zaloguj się!
             </h1>
             <TextField
+                name="email"
                 placeholder={'E-mail'}
                 type="email"
-                name="email"
                 style={styles.input}
                 onChange={props.onTextChange}
             />
             <TextField
+                name="password"
                 placeholder={'Password'}
                 type="password"
-                name="password"
                 style={styles.input}
                 onChange={props.onTextChange}
             />
             <RaisedButton
-                color="primary"
+                primary={true}
                 style={styles.button}
                 onClick={props.onLogInClick}
-            >
-                Zaloguj
-            </RaisedButton>
+                label="Zaloguj"
+            />
             <RaisedButton
-                color="accent"
+                secondary={true}
                 style={styles.button}
                 onClick={props.onLogInByGoogleClick}
-            >
-                Zaloguj Google+
-            </RaisedButton>
+                label="Zaloguj przez Google"
+            />
         </Paper>
     </div>
 )
