@@ -11,6 +11,15 @@ const paperStyles = {
     textAlign: 'center'
 }
 
+const Task = (props) => (
+    <ListItem
+        primaryText={props.taskName}  //wld_INFO
+        //rightIcon={<ActionDelete onClick={props.deleteTask}/>} //OK- to nie jest wywolanie tylko deklaracja!! onClick wywola funkcje.
+        //rightIcon={<ActionDelete onClick={()=>props.deleteTask('0')}/>} //NOT - funkcja wywola sie od razu
+        rightIcon={<ActionDelete onClick={()=>props.deleteTask(props.taskId)}/>} //OK - funkcja z parametrem, czyli wywolana musi byc wlozona w fukcje zewnetrzna, bo onClick wywola zewnetrzna, wiec wtedy dopiero wywola sie wewnetrzna
+    />
+)
+
 class FireBaseToDo extends React.Component {
     deleteTask = () => {}
 
@@ -29,12 +38,7 @@ class FireBaseToDo extends React.Component {
                 />
 
                 <List style={{textAlign:'left'}}>
-                    <ListItem
-                        primaryText="Pierwsze zadanie"  //wld_INFO
-                        //rightIcon={<ActionDelete onClick={this.deleteTask}/>} //OK- to nie jest wywolanie tylko deklaracja!! onClick wywola funkcje.
-                        //rightIcon={<ActionDelete onClick={()=>this.deleteTask('0')}/>} //NOT - funkcja wywola sie od razu
-                        rightIcon={<ActionDelete onClick={()=>this.deleteTask('0')}/>} //OK - funkcja z parametrem, czyli wywolana musi byc wlozona w fukcje zewnetrzna, bo onClick wywola zewnetrzna, wiec wtedy dopiero wywola sie wewnetrzna
-                    />
+
 
                 </List>
             </Paper>
