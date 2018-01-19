@@ -1,0 +1,31 @@
+{
+  "uid": "qaSEV0qb01ROU5XTzvRbM5IP3Or1",
+  "displayName": null,
+  "photoURL": null,
+  "email": "kontakt@amazingdesign.eu",
+  "emailVerified": false,
+  "phoneNumber": null,
+  "isAnonymous": false,
+  "providerData": [
+    {
+      "uid": "kontakt@amazingdesign.eu",
+      "displayName": null,
+      "photoURL": null,
+      "email": "kontakt@amazingdesign.eu",
+      "phoneNumber": null,
+      "providerId": "password"
+    }
+  ],
+  "apiKey": "AIzaSyDDOwPtv46O8gP0f-RBsvT9nDp3yrRXxtQ",
+  "appName": "[DEFAULT]",
+  "authDomain": "ad-snadbox.firebaseapp.com",
+  "stsTokenManager": {
+    "apiKey": "AIzaSyDDOwPtv46O8gP0f-RBsvT9nDp3yrRXxtQ",
+    "refreshToken": "AEoYo8tIEIiqeW5etKeUM-rZwn7EvPMjEGgp7CVfYv12-OFdVomxFAwX3MzzloJ0xbV32KLCpuWfPAG9HWtSDmXNCMsAFX7840FPrvVwloTyJcapF_HBT3Pr_ckm48-Tu-ybxazir_0KexGOxC2-we7aFGgwNjgJEbpLtUwBQEoN0MvX_gPWb5oz2_D9df8RWmZ8u0RkrugOph6GGBzl-vrUCopBzI-epw",
+    "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImU2YWFkNTc4NWQ0NzBiMDllMjRhNmU1OGM4OTZjZTdkYWQ4NGJjYTUifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vYWQtc25hZGJveCIsImF1ZCI6ImFkLXNuYWRib3giLCJhdXRoX3RpbWUiOjE1MTYzNjYxOTksInVzZXJfaWQiOiJxYVNFVjBxYjAxUk9VNVhUenZSYk01SVAzT3IxIiwic3ViIjoicWFTRVYwcWIwMVJPVTVYVHp2UmJNNUlQM09yMSIsImlhdCI6MTUxNjM2NjE5OSwiZXhwIjoxNTE2MzY5Nzk5LCJlbWFpbCI6ImtvbnRha3RAYW1hemluZ2Rlc2lnbi5ldSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJrb250YWt0QGFtYXppbmdkZXNpZ24uZXUiXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.NuSr_tWYher1OCgUzwDo6Z-HiIjc6G02O7a-fQZAomOTNd1mbqk8e11GdIiqWfMd0Wx9k4IN26IUu-pvf6HqJeKBXqIi6t8RVzZOkY9Bqd6Tj-4ZHoc0oSSviL10G9pCM7WRGZBNtjayGe2yyfYYtoit4NxtnrhDGLYhpCMPtw-r2OVjh92mr5rRihbIqsfWfGQ36yhLe_V8qBxOwTd16zmoejnmlJqjbD5Uzmmep4Xa6NU-GlHlfpQolFluvwkzmmVfKCEd85ZdBBbTtayzviWY7Ztr1ZMg-_tKL48UZh6n-F0lPdxlPQb3yLNrNU-kOsjyB2JBQtozBFgTx4EV7A",
+    "expirationTime": 1516369800169
+  },
+  "redirectEventId": null,
+  "lastLoginAt": "1516366199000",
+  "createdAt": "1515846614000"
+}
