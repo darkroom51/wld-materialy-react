@@ -32,14 +32,14 @@ const LogIn = (props) => (
                 placeholder={'E-mail'}
                 type="email"
                 style={styles.input}
-                onChange={props.onTextChange}
+                onChange={props.onEmailChange}
             />
             <TextField
                 name="password"
                 placeholder={'Password'}
                 type="password"
                 style={styles.input}
-                onChange={props.onTextChange}
+                onChange={props.onPasswordChange}
             />
             <RaisedButton
                 primary={true}
