@@ -1,34 +1,42 @@
 import React, {Component} from 'react'
+import {database} from './firebase'
 
 class FirebaseCounter extends Component {
     // initial state of component
     state = {
-        counter: 1
+        counter: null
     }
 
-    componentDidMount() {
-        this.setState({
-            counter: this.state.counter + 1
-        }, () => console.log('Stan się zupdatował!'))
+    componentWillMount() {
+        database.ref('/counter').on(
+            'value',
+            (snapshot) => this.setState({
+                counter: snapshot.val()
+            })
+        )
     }
 
     onMinusClickHandler = () => {
-        this.setState({
-            counter: this.state.counter - 1
-        })
+        if(this.state.counter !== null)
+            database.ref('/counter').set(this.state.counter - 1)
     }
 
     onPlusClickHandler = () => {
-        this.setState({
-            counter: this.state.counter + 1
-        })
+        if(this.state.counter !== null)
+            database.ref('/counter').set(this.state.counter + 1)
     }
 
     render() {
         console.log('Render!', this.state)
         return (
             <div>
-                <h1>{this.state.counter}</h1>
+                <h1>{
+                    this.state.counter === null ?
+                        'Ładuję...'
+                        :
+                        this.state.counter
+                }
+                </h1>
                 <button onClick={this.onMinusClickHandler}>
                     -
                 </button>

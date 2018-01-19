@@ -6,6 +6,7 @@ import REST from './REST'
 import RestToDoList from './RestToDoList'
 import FirebaseComponent from './FirebaseComponent'
 import FirebaseCounter from './FirebaseCounter'
+import FireBaseToDo from './FireBaseToDo'
 
 const routes = [
     {
@@ -48,6 +49,11 @@ const routes = [
         path: '/component/firebase-counter',
         text: 'Firebase Counter',
         component: FirebaseCounter
+    },
+    {
+        path: '/component/firebase-to-do',
+        text: 'Firebase ToDo',
+        component: FireBaseToDo
     }
 ]
 
