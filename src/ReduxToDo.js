@@ -7,6 +7,9 @@ import RaisedButton from 'material-ui/RaisedButton'
 import {List, ListItem} from 'material-ui/List';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 
+import {connect} from 'react-redux'
+import {addTask} from './state/todo'
+
 const paperStyles = {
     margin: 20,
     padding: 20,
@@ -44,7 +47,7 @@ class ReduxToDo extends React.Component {
                     label={"add"}
                     primary={true}
                     fullWidth={true}
-                    onClick={this.props.handleAddTask}
+                    onClick={() => this.props.handleAddTask(this.state.newTaskName)}
                 />
 
                 <List style={{textAlign:'left'}}>
@@ -56,7 +59,7 @@ class ReduxToDo extends React.Component {
                                 taskName = {el.name}
                                 taskId = {el.key}
                                 deleteTask = {this.props.deleteTask}
-                                key = {el.key} //unique key
+                                key = {el.key}
                             />
                         ))
                     }
@@ -66,4 +69,16 @@ class ReduxToDo extends React.Component {
     }
 }
 
-export default ReduxToDo
+const mapStateToProps = state =>({
+    tasks: state.todo.tasks
+})
+
+const mapDispatchToProps = state => ({
+    //addTask : (event, value) => dispatch(addTask(value))
+})
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+) (ReduxToDo)
