@@ -8,6 +8,7 @@ import FirebaseComponent from './FirebaseComponent'
 import FirebaseCounter from './FirebaseCounter'
 import FireBaseToDo from './FireBaseToDo'
 import FireBaseLogIn from './FireBaseLogIn'
+import ReduxToDo from './ReduxToDo'
 
 const routes = [
     {
@@ -60,6 +61,11 @@ const routes = [
         path: '/component/firebase-login',
         text: 'Firebase Login',
         component: FireBaseLogIn
+    },
+    {
+        path: '/component/redux-to-do',
+        text: 'Redux ToDo',
+        component: ReduxToDo
     }
 ]
 
