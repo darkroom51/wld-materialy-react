@@ -1,16 +1,16 @@
 import React from 'react'
-
-
 import TextField from 'material-ui/TextField'
 import Paper from 'material-ui/Paper'
 import RaisedButton from 'material-ui/RaisedButton'
 import {List, ListItem} from 'material-ui/List';
-import ActionDelete from 'material-ui/svg-icons/action/delete';
+import ActionDelete from 'material-ui/svg-icons/action/delete'
+import {lime500} from 'material-ui/styles/colors'
 
 import {connect} from 'react-redux'
-import {addTask} from './state/todo'
+import {addTask, deleteTask} from './state/todo'
 
-const paperStyles = {
+
+const styles = {
     margin: 20,
     padding: 20,
     textAlign: 'center'
@@ -19,47 +19,45 @@ const paperStyles = {
 const Task = (props) => (
     <ListItem
         primaryText={props.taskName}
-        rightIcon={<ActionDelete onClick={()=>props.deleteTask(props.taskId)}/>}
+        rightIcon={
+            <ActionDelete
+                onClick={() => props.deleteTask(props.taskId)} // to zostaje wywolane: deleteTask: key => dispatch(deleteTask(key))
+            />
+        }
     />
 )
 
-
-
-
 class ReduxToDo extends React.Component {
     state = {
-        textFromInput: '',
+        newTaskName: ''
     }
-
-
-
 
     render() {
         return (
-            <Paper style={paperStyles}>
+            <Paper style={styles}>
                 <TextField
-                    hintText={"Do something nice..."}
+                    value={this.state.newTaskName}
+                    onChange={(e, value)=> this.setState({newTaskName: value})}
+                    hintText={"Nowe zadanie"}
                     fullWidth={true}
-                    value={this.state.textFromInput}
-                    onChange={(e,value)=> this.setState({textFromInput: value})}
+                    underlineFocusStyle={{borderColor: lime500}}
                 />
                 <RaisedButton
-                    label={"add"}
+                    onClick={() => this.props.addTask(this.state.newTaskName)}
+                    label={"Dodaj!"}
                     primary={true}
                     fullWidth={true}
-                    onClick={() => this.props.handleAddTask(this.state.newTaskName)}
                 />
-
-                <List style={{textAlign:'left'}}>
+                <List style={{textAlign: 'left'}}>
                     {
-                        this.props.tasks //stan jest przekazany przez propsy
+                        this.props.tasks
                         &&
-                        this.props.tasks.map((el) => (
+                        this.props.tasks.map((task) => ( //propsy zamiast stanu
                             <Task
-                                taskName = {el.name}
-                                taskId = {el.key}
-                                deleteTask = {this.props.deleteTask}
-                                key = {el.key}
+                                key={task.key}
+                                taskName={task.name}
+                                taskId={task.key}
+                                deleteTask={this.props.deleteTask}
                             />
                         ))
                     }
@@ -69,16 +67,16 @@ class ReduxToDo extends React.Component {
     }
 }
 
-const mapStateToProps = state =>({
+const mapStateToProps = state => ({  //DISPATCHER all below; ten laczy kawalski stanu
     tasks: state.todo.tasks
 })
 
-const mapDispatchToProps = state => ({
-    //addTask : (event, value) => dispatch(addTask(value))
+const mapDispatchToProps = dispatch => ({ //ten laczy akcje
+    addTask: name => dispatch(addTask(name)),
+    deleteTask: key => dispatch(deleteTask(key))
 })
-
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-) (ReduxToDo)
+)(ReduxToDo)

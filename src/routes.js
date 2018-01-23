@@ -9,6 +9,8 @@ import FirebaseCounter from './FirebaseCounter'
 import FireBaseToDo from './FireBaseToDo'
 import FireBaseLogIn from './FireBaseLogIn'
 import ReduxToDo from './ReduxToDo'
+import ReduxSimpleText from './ReduxSimpleText' //uwaga! to importuje katalog
+import ReduxRectangle from './ReduxRectangle'
 
 const routes = [
     {
@@ -66,6 +68,16 @@ const routes = [
         path: '/component/redux-to-do',
         text: 'Redux ToDo',
         component: ReduxToDo
+    },
+    {
+        path: '/component/redux-simple-text',
+        text: 'Redux Simple Text',
+        component: ReduxSimpleText
+    },
+    {
+        path: '/component/redux-rectangle',
+        text: 'Redux Rectangle',
+        component: ReduxRectangle
     }
 ]
 
