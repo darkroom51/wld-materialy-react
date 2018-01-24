@@ -4,7 +4,15 @@ import {connect} from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import {toggleRect} from '../state/rectangle' // importujemy akcje
 
+
 class ReduxRectangle extends React.Component {
+    // componentWillMount() {
+    //     setInterval(() => {
+    //             this.props.handleButtonClick()
+    //         }
+    //         , 1000)
+    // }
+
     render() {
         console.log(this.props.isRectVisible);
         return (
@@ -22,9 +30,13 @@ class ReduxRectangle extends React.Component {
                         :
                         null
                 }
-
                 <RaisedButton
-                    label={"Toggle"}
+                    label={"blink"}
+                    fullWidth={true}
+                    //onClick={() => setInterval(() => {this.props.handleButtonClick()}, 1000)}
+                />
+                <RaisedButton
+                    label={this.props.isRectVisible ? "hide" : "show"}
                     fullWidth={true}
                     onClick={this.props.handleButtonClick}
                 />

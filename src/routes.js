@@ -11,6 +11,7 @@ import FireBaseLogIn from './FireBaseLogIn'
 import ReduxToDo from './ReduxToDo'
 import ReduxSimpleText from './ReduxSimpleText' //uwaga! to importuje katalog
 import ReduxRectangle from './ReduxRectangle'
+import ReduxCounter from './ReduxCounter'
 
 const routes = [
     {
@@ -78,6 +79,11 @@ const routes = [
         path: '/component/redux-rectangle',
         text: 'Redux Rectangle',
         component: ReduxRectangle
+    },
+    {
+        path: '/component/redux-counter',
+        text: 'Redux Counter',
+        component: ReduxCounter
     }
 ]
 
