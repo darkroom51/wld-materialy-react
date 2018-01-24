@@ -21,7 +21,7 @@ const initialState = {
 }
 
 // reducer - export default
-export default (state = initialState, action) => { // state to wycinek globalenego reduxowego statem ktory jest laczony w storze
+export default (state = initialState, action) => { // state to wycinek globalenego reduxowego state'a ktory jest laczony w storze
     switch (action.type) {
         case INC:
             return {

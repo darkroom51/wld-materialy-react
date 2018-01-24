@@ -12,6 +12,7 @@ import ReduxToDo from './ReduxToDo'
 import ReduxSimpleText from './ReduxSimpleText' //uwaga! to importuje katalog
 import ReduxRectangle from './ReduxRectangle'
 import ReduxCounter from './ReduxCounter'
+import ReduxAsyncActions from './ReduxAsyncActions'
 
 const routes = [
     {
@@ -84,6 +85,11 @@ const routes = [
         path: '/component/redux-counter',
         text: 'Redux Counter',
         component: ReduxCounter
+    },
+    {
+        path: '/component/redux-async',
+        text: 'Redux Async',
+        component: ReduxAsyncActions
     }
 ]
 
