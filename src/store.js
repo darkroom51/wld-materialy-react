@@ -8,7 +8,7 @@ const reducer = combineReducers({
     todo: todoReducer,
     koteczek: changeTextReducer,
     rectangle: rectangleReducer,   //kaczka/duck ---> importuj default reducer i podstaw pod nowa dowolna nazwe, aby uniknac konfliktow
-    reduxCounter: reduxCounterReducer
+    buttCounter: reduxCounterReducer
 })
 
 const store = createStore(
