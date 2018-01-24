@@ -2,10 +2,11 @@ import React from 'react'
 
 import {connect} from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import {toggleRect} from '../state/rectangle'
+import {toggleRect} from '../state/rectangle' // importujemy akcje
 
 class ReduxRectangle extends React.Component {
     render() {
+        console.log(this.props.isRectVisible);
         return (
 
             <div>
@@ -39,7 +40,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     //nazwa propsa: funkcja.która.wywoła.dispatch (z akcją)
-    handleButtonClick: () => dispatch(toggleRect())
+    handleButtonClick: () => dispatch(toggleRect()) // funckcja wywolujaca dispacz z akcja
 })
 
 export default connect(

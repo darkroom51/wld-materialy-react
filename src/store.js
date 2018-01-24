@@ -1,12 +1,12 @@
 import {createStore, combineReducers} from 'redux'
 import todoReducer from './state/todo'
 import changeTextReducer from './state/changeText'
-import rectangleReducer from './state/rectangle'
+import rectangleReducer from './state/rectangle' //import default wiec nazwa dowolna
 
 const reducer = combineReducers({
     todo: todoReducer,
     koteczek: changeTextReducer,
-    rectangle: rectangleReducer
+    rectangle: rectangleReducer   //kaczka/duck ---> importuj default reducer i podstaw pod nowa dowolna nazwe, aby uniknac konfliktow
 })
 
 const store = createStore(
