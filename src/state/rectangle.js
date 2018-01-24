@@ -1,27 +1,23 @@
+// ACTION TYPE
 const TOGGLE_RECT = 'rectangle/TOGGLE_RECT'
 
-
-export const toggleStateAction = rectVisible => ({  //ACTION CREATOR ---> tworzy obiekt akcji ACTION
-    type: TOGGLE_RECT,
-    rectVisible
+// action creator - export by name
+export const toggleRect = () => ({
+    type: TOGGLE_RECT
 })
 
-
-
-
+// initial state
 const initialState = {
-    rectVisible: true
+    isRectVisible: true
 }
 
-
-
-
-export default (state = initialState, action) => {  //REDUCER, zwraca nowy stan na podstawie akcji
+// reducer - export default
+export default (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_RECT:
             return {
                 ...state,
-                rectVisible: !action.rectVisible
+                isRectVisible: !state.isRectVisible
             }
         default:
             return state

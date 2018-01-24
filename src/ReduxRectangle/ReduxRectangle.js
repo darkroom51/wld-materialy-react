@@ -1,42 +1,45 @@
 import React from 'react'
+
 import {connect} from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import {toggleStateAction} from '../state/rectangle'
+import {toggleRect} from '../state/rectangle'
 
-class ReduxRectangle extends React.Component{
-    state={
-        isRectVisible:true
-    }
-
-    render (){
+class ReduxRectangle extends React.Component {
+    render() {
         return (
+
             <div>
-                <div
-                    style={{
-                        width:200,
-                        height:200,
-                        backgroundColor:'red'
-                    }}>
-                </div>
+                {
+                    this.props.isRectVisible ?
+                        <div
+                            style={{
+                                width: 200,
+                                height: 200,
+                                backgroundColor: 'red'
+                            }}>
+                        </div>
+                        :
+                        null
+                }
 
                 <RaisedButton
-                    onClick={() => this.props.handleButtonClick(this.state.isRectVisible)}
-                    label={"TOGGLE"}
-                    primary={true}
+                    label={"Toggle"}
                     fullWidth={true}
+                    onClick={this.props.handleButtonClick}
                 />
             </div>
         )
     }
-
 }
 
-const mapStateToProps = state => ({  //DISPATCHER all below; ten laczy kawalski stanu
-   //nazwaPropsa: kawalek.stanu.ktory.przypinamy
+const mapStateToProps = state => ({
+    //nazwa propsa: kawałek.stanu.który.przypinamy
+    isRectVisible: state.rectangle.isRectVisible
 })
 
-const mapDispatchToProps = dispatch => ({ //ten laczy akcje
-    handleButtonClick: (toggleState) => dispatch(toggleStateAction(toggleState))
+const mapDispatchToProps = dispatch => ({
+    //nazwa propsa: funkcja.która.wywoła.dispatch (z akcją)
+    handleButtonClick: () => dispatch(toggleRect())
 })
 
 export default connect(
