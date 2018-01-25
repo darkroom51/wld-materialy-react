@@ -7,7 +7,7 @@ import rectangleReducer from './state/rectangle' //import default wiec nazwa dow
 import reduxCounterReducer from './state/reduxCounter' //import default wiec nazwa dowolna
 import asyncActionsReducer from './state/asyncActions' //import default wiec nazwa dowolna
 import loadingIndicatorReducer from './state/loadingIndicator' //import default wiec nazwa dowolna
-import authReducer from './state/auth' //import default wiec nazwa dowolna
+import authReducer, {initAuth} from './state/auth' //import default wiec nazwa dowolna
 
 const reducer = combineReducers({
     todo: todoReducer,
@@ -26,5 +26,7 @@ const store = createStore(
     reducer,
     composeEnhancers(applyMiddleware(thunk)) // Redux laczy stora thunka i compose przez applyMidddleware
 )
+
+store.dispatch(initAuth()) //inicjulemy dispacz akcji asynchronicznej initAuth, ktora wywaola akcje synchroniczna setUser
 
 export default store

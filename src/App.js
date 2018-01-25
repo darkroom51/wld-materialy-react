@@ -27,8 +27,9 @@ class App extends Component {
     render() {
         return (
             <Provider store={store}>
-                <Auth>
+
                     <MuiThemeProvider>
+                        <Auth>
                         <Router>
                             <div>
                                 <LoadingIndicator/>
@@ -52,8 +53,9 @@ class App extends Component {
                                 }
                             </div>
                         </Router>
+                        </Auth>
                     </MuiThemeProvider>
-                </Auth>
+
             </Provider>
         )
     }
