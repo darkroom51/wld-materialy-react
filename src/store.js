@@ -7,6 +7,7 @@ import rectangleReducer from './state/rectangle' //import default wiec nazwa dow
 import reduxCounterReducer from './state/reduxCounter' //import default wiec nazwa dowolna
 import asyncActionsReducer from './state/asyncActions' //import default wiec nazwa dowolna
 import loadingIndicatorReducer from './state/loadingIndicator' //import default wiec nazwa dowolna
+import authReducer from './state/auth' //import default wiec nazwa dowolna
 
 const reducer = combineReducers({
     todo: todoReducer,
@@ -14,7 +15,9 @@ const reducer = combineReducers({
     rectangle: rectangleReducer,   //kaczka/duck ---> importuj default reducer i podstaw pod nowa dowolna nazwe, aby uniknac konfliktow
     buttCounter: reduxCounterReducer,
     asyncActions: asyncActionsReducer,
-    loading: loadingIndicatorReducer
+    loading: loadingIndicatorReducer,
+    auth: authReducer
+
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
