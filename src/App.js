@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 
 import SideBar from './SideBar'
+import LoadingIndicator from './LoadingIndicator'
 
 import routes from './routes'
 
@@ -28,6 +29,7 @@ class App extends Component {
             <MuiThemeProvider>
                 <Router>
                     <div>
+                        <LoadingIndicator />
                         <AppBar
                             title="My First App"
                             onLeftIconButtonClick={this.drawerToggle}
