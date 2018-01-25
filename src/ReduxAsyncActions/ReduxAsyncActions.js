@@ -1,14 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import {setData, fetchData} from '../state/asyncActions'
+import {fetchData} from '../state/asyncActions'
 
 class ReduxAsyncActions extends React.Component {
     render (){
         return (
             <div  style={{textAlign:'center'}}>
                 <div style={{fontSize:30}}>
-                    <img src={this.props.randomUserData ? this.props.randomUserData.picture.large : 'no image loaded'} />
+                    <img src={this.props.randomUserData ? this.props.randomUserData.picture.large : 'no image loaded'} alt={""}/>
                     <br />
                     {this.props.randomUserData ? this.props.randomUserData.name.first : 'name hasn\'t been fetched'}
                     <br />
@@ -16,6 +16,9 @@ class ReduxAsyncActions extends React.Component {
                 <br />
                     {this.props.randomUserData ? this.props.randomUserData.email : ''}
                     </div>
+                <div  style={{color:'#ff0000', fontSize:20}}>
+                    {this.props.loadingMessage}
+                </div>
                 <RaisedButton
                     label={"Fetch Data"}
                     onClick={this.props.getRandomUserData}
@@ -26,7 +29,8 @@ class ReduxAsyncActions extends React.Component {
 }
 
 const mapStateToProps = state  =>({
-    randomUserData: state.asyncActions.randomUserData
+    randomUserData: state.asyncActions.randomUserData,
+    loadingMessage: state.asyncActions.messageForUser
 })
 
 const mapDispatchToProps = dispatch =>({
